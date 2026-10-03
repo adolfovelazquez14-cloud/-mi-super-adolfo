@@ -31,55 +31,158 @@ footer{text-align:center;color:#888;font-size:12px;padding:8px}
 <div class="hero"><h1>🛒 Mi Súper</h1><div class="sub">Plan alimenticio de 6 días · Adolfo Velazquez</div>
 <div class="stats"><div class="stat"><b id="total">0</b>productos</div><div class="stat"><b id="done">0</b>comprados</div><div class="stat"><b id="left">0</b>pendientes</div></div></div>
 <div class="progress"><div class="pt"><span>Progreso de compra</span><b id="pct">0%</b></div><div class="bar"><div class="fill" id="fill"></div></div></div>
-<div class="actions"><button class="dark" id="all">✓ Marcar todo</button><button class="light" id="reset">↻ Restablecer lista</button></div>
-<div class="add"><div class="addtitle">➕ Agregar producto</div><div class="fields"><input id="newName" type="text" placeholder="Producto"><input id="newQty" type="text" placeholder="Cantidad"></div><button class="dark" id="add">Agregar producto</button></div>
+<div class="actions"><button type="button" class="dark" id="all">✓ Marcar todo</button><button type="button" class="light" id="reset">↻ Restablecer lista</button></div>
+<div class="add"><div class="addtitle">➕ Agregar producto</div><div class="fields"><input id="newName" type="text" placeholder="Producto"><input id="newQty" type="text" placeholder="Cantidad"></div><button type="button" class="dark" id="add">Agregar producto</button></div>
 <div id="products"><section class="card"><h2>🥩 CARNES, POLLO Y PESCADO</h2><div class="item" id="row1"><label><input type="checkbox" data-id="p1"><span class="box"></span><span class="name">Pechuga de pollo</span><span class="qty">1 kg</span></label></div><div class="item" id="row2"><label><input type="checkbox" data-id="p2"><span class="box"></span><span class="name">Carne de res magra</span><span class="qty">1 kg</span></label></div><div class="item" id="row3"><label><input type="checkbox" data-id="p3"><span class="box"></span><span class="name">Carne molida magra</span><span class="qty">150 g</span></label></div><div class="item" id="row4"><label><input type="checkbox" data-id="p4"><span class="box"></span><span class="name">Pescado blanco</span><span class="qty">500 g</span></label></div><div class="item" id="row5"><label><input type="checkbox" data-id="p5"><span class="box"></span><span class="name">Atún en agua</span><span class="qty">1 lata</span></label></div><div class="item" id="row6"><label><input type="checkbox" data-id="p6"><span class="box"></span><span class="name">Pechuga de pavo</span><span class="qty">700 g</span></label></div><div class="item" id="row7"><label><input type="checkbox" data-id="p7"><span class="box"></span><span class="name">Huevos</span><span class="qty">18 piezas</span></label></div><div class="item" id="row8"><label><input type="checkbox" data-id="p8"><span class="box"></span><span class="name">Claras de huevo</span><span class="qty">450 g</span></label></div></section><section class="card"><h2>🥛 LÁCTEOS</h2><div class="item" id="row9"><label><input type="checkbox" data-id="p9"><span class="box"></span><span class="name">Leche descremada</span><span class="qty">2 litros</span></label></div><div class="item" id="row10"><label><input type="checkbox" data-id="p10"><span class="box"></span><span class="name">Yogurt griego natural</span><span class="qty">1.5 kg</span></label></div></section><section class="card"><h2>🌾 CEREALES Y CARBOHIDRATOS</h2><div class="item" id="row11"><label><input type="checkbox" data-id="p11"><span class="box"></span><span class="name">Avena</span><span class="qty">1 kg</span></label></div><div class="item" id="row12"><label><input type="checkbox" data-id="p12"><span class="box"></span><span class="name">Arroz</span><span class="qty">1 kg</span></label></div><div class="item" id="row13"><label><input type="checkbox" data-id="p13"><span class="box"></span><span class="name">Pasta</span><span class="qty">500 g</span></label></div><div class="item" id="row14"><label><input type="checkbox" data-id="p14"><span class="box"></span><span class="name">Granola</span><span class="qty">500 g</span></label></div><div class="item" id="row15"><label><input type="checkbox" data-id="p15"><span class="box"></span><span class="name">Cereal</span><span class="qty">1 paquete pequeño</span></label></div><div class="item" id="row16"><label><input type="checkbox" data-id="p16"><span class="box"></span><span class="name">Pan integral</span><span class="qty">1 paquete</span></label></div><div class="item" id="row17"><label><input type="checkbox" data-id="p17"><span class="box"></span><span class="name">Tortillas de maíz</span><span class="qty">30–36 piezas</span></label></div><div class="item" id="row18"><label><input type="checkbox" data-id="p18"><span class="box"></span><span class="name">Papa</span><span class="qty">1.5 kg</span></label></div><div class="item" id="row19"><label><input type="checkbox" data-id="p19"><span class="box"></span><span class="name">Frijoles</span><span class="qty">500–750 g</span></label></div></section><section class="card"><h2>🍌 FRUTAS</h2><div class="item" id="row20"><label><input type="checkbox" data-id="p20"><span class="box"></span><span class="name">Plátano</span><span class="qty">10–12 piezas</span></label></div><div class="item" id="row21"><label><input type="checkbox" data-id="p21"><span class="box"></span><span class="name">Manzana</span><span class="qty">3 piezas</span></label></div><div class="item" id="row22"><label><input type="checkbox" data-id="p22"><span class="box"></span><span class="name">Naranja</span><span class="qty">1–2 piezas</span></label></div><div class="item" id="row23"><label><input type="checkbox" data-id="p23"><span class="box"></span><span class="name">Fruta para colaciones</span><span class="qty">2 piezas</span></label></div></section><section class="card"><h2>🥑 VERDURAS Y GRASAS</h2><div class="item" id="row24"><label><input type="checkbox" data-id="p24"><span class="box"></span><span class="name">Aguacate</span><span class="qty">3 piezas</span></label></div><div class="item" id="row25"><label><input type="checkbox" data-id="p25"><span class="box"></span><span class="name">Verduras variadas</span><span class="qty">2 kg</span></label></div><div class="item" id="row26"><label><input type="checkbox" data-id="p26"><span class="box"></span><span class="name">Crema de cacahuate</span><span class="qty">1 frasco</span></label></div><div class="item" id="row27"><label><input type="checkbox" data-id="p27"><span class="box"></span><span class="name">Aceite de oliva</span><span class="qty">1 botella pequeña</span></label></div></section><section class="card"><h2>🍅 SALSAS Y COMPLEMENTOS</h2><div class="item" id="row28"><label><input type="checkbox" data-id="p28"><span class="box"></span><span class="name">Salsa de tomate</span><span class="qty">1 frasco</span></label></div></section></div>
 <section class="card manual" id="manual" style="display:none"><h2>📝 MIS PRODUCTOS</h2><div id="manualList"></div></section>
 <footer>Las selecciones se guardan automáticamente en este dispositivo.</footer>
 </div>
 <script>
-const KEY="mi_super_adolfo_v1";
-let state={checks:{},manual:[]};
-try{state=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
-function save(){localStorage.setItem(KEY,JSON.stringify(state));}
-function checks(){return [...document.querySelectorAll('#products input[type=checkbox]'),...document.querySelectorAll('#manualList input[type=checkbox]')]}
-function update(){
- const a=checks(), done=a.filter(x=>x.checked).length, total=a.length, p=total?Math.round(done*100/total):0;
- document.getElementById('total').textContent=total; document.getElementById('done').textContent=done;
- document.getElementById('left').textContent=total-done; document.getElementById('pct').textContent=p+'%';
- document.getElementById('fill').style.width=p+'%';
- document.querySelectorAll('#products .item').forEach(r=>r.classList.toggle('done',r.querySelector('input').checked));
- save();
-}
-document.querySelectorAll('#products input[type=checkbox]').forEach(x=>{x.checked=!!state.checks[x.dataset.id];x.addEventListener('change',()=>{state.checks[x.dataset.id]=x.checked;update()})});
+(() => {
+  'use strict';
+  const KEY = 'mi_super_adolfo_v2';
+  let state = { checks: {}, manual: [] };
 
-function renderManual(){
- const box=document.getElementById('manualList'), sec=document.getElementById('manual'); box.innerHTML='';
- sec.style.display=state.manual.length?'block':'none';
- state.manual.forEach((m,i)=>{
-   const row=document.createElement('div'); row.className='manualrow';
-   const cb=document.createElement('input'); cb.type='checkbox'; cb.checked=!!m.checked;
-   cb.onchange=()=>{m.checked=cb.checked;update()};
-   const nm=document.createElement('span'); nm.className='manualname'; nm.textContent=m.name;
-   const qt=document.createElement('span'); qt.className='manualqty'; qt.textContent=m.qty||'';
-   const del=document.createElement('button'); del.className='delete'; del.textContent='×';
-   del.onclick=()=>{state.manual.splice(i,1);renderManual();update()};
-   row.append(cb,nm,qt,del);box.appendChild(row);
- });
-}
-renderManual();
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (saved) state = Object.assign(state, JSON.parse(saved));
+  } catch (e) {}
+  if (!state.checks || typeof state.checks !== 'object') state.checks = {};
+  if (!Array.isArray(state.manual)) state.manual = [];
 
-document.getElementById('add').onclick=()=>{
- const name=document.getElementById('newName').value.trim(), qty=document.getElementById('newQty').value.trim();
- if(!name){alert('Escribe el nombre del producto.');return}
- state.manual.push({name,qty,checked:false}); document.getElementById('newName').value=''; document.getElementById('newQty').value='';
- renderManual();update();
-};
-document.getElementById('all').onclick=()=>{document.querySelectorAll('input[type=checkbox]').forEach(x=>x.checked=true);document.querySelectorAll('#products input[type=checkbox]').forEach(x=>state.checks[x.dataset.id]=true);state.manual.forEach(x=>x.checked=true);update();renderManual();};
-document.getElementById('reset').onclick=()=>{if(confirm('¿Desmarcar todos los productos?')){document.querySelectorAll('input[type=checkbox]').forEach(x=>x.checked=false);state.checks={};state.manual.forEach(x=>x.checked=false);update();renderManual()}};
-update();
+  const $ = id => document.getElementById(id);
+  const productChecks = () => Array.from(document.querySelectorAll('#products input[type="checkbox"]'));
+  const manualChecks = () => Array.from(document.querySelectorAll('#manualList input[type="checkbox"]'));
+  const allChecks = () => productChecks().concat(manualChecks());
 
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function update() {
+    const items = allChecks();
+    const done = items.filter(x => x.checked).length;
+    const total = items.length;
+    const pct = total ? Math.round(done * 100 / total) : 0;
+    $('total').textContent = total;
+    $('done').textContent = done;
+    $('left').textContent = total - done;
+    $('pct').textContent = pct + '%';
+    $('fill').style.width = pct + '%';
+    document.querySelectorAll('#products .item').forEach(row => {
+      const cb = row.querySelector('input[type="checkbox"]');
+      row.classList.toggle('done', !!cb && cb.checked);
+    });
+    save();
+  }
+
+  function renderManual() {
+    const box = $('manualList');
+    const section = $('manual');
+    box.innerHTML = '';
+    section.style.display = state.manual.length ? 'block' : 'none';
+
+    state.manual.forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'manualrow';
+
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = !!item.checked;
+      cb.addEventListener('change', () => {
+        item.checked = cb.checked;
+        update();
+      });
+
+      const name = document.createElement('span');
+      name.className = 'manualname';
+      name.textContent = item.name;
+
+      const qty = document.createElement('span');
+      qty.className = 'manualqty';
+      qty.textContent = item.qty || '';
+
+      const del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'delete';
+      del.setAttribute('aria-label', 'Eliminar producto');
+      del.textContent = '×';
+      del.addEventListener('click', () => {
+        state.manual.splice(index, 1);
+        renderManual();
+        update();
+      });
+
+      row.append(cb, name, qty, del);
+      box.appendChild(row);
+    });
+  }
+
+  function bindEvents() {
+    productChecks().forEach(cb => {
+      cb.checked = !!state.checks[cb.dataset.id];
+      cb.addEventListener('change', () => {
+        state.checks[cb.dataset.id] = cb.checked;
+        update();
+      });
+    });
+
+    $('add').addEventListener('click', () => {
+      const nameInput = $('newName');
+      const qtyInput = $('newQty');
+      const name = nameInput.value.trim();
+      const qty = qtyInput.value.trim();
+      if (!name) {
+        nameInput.focus();
+        alert('Escribe el nombre del producto.');
+        return;
+      }
+      state.manual.push({ name, qty, checked: false });
+      nameInput.value = '';
+      qtyInput.value = '';
+      renderManual();
+      update();
+      nameInput.focus();
+    });
+
+    $('all').addEventListener('click', () => {
+      productChecks().forEach(cb => {
+        cb.checked = true;
+        state.checks[cb.dataset.id] = true;
+      });
+      state.manual.forEach(item => item.checked = true);
+      renderManual();
+      update();
+    });
+
+    $('reset').addEventListener('click', () => {
+      const doReset = window.confirm('¿Desmarcar todos los productos?');
+      if (!doReset) return;
+      productChecks().forEach(cb => cb.checked = false);
+      state.checks = {};
+      state.manual.forEach(item => item.checked = false);
+      renderManual();
+      update();
+    });
+
+    $('newName').addEventListener('keydown', e => {
+      if (e.key === 'Enter') $('add').click();
+    });
+    $('newQty').addEventListener('keydown', e => {
+      if (e.key === 'Enter') $('add').click();
+    });
+  }
+
+  bindEvents();
+  renderManual();
+  update();
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js?v=2', { updateViaCache: 'none' }).catch(() => {});
+    });
+  }
+})();
 </script>
 </body>
 </html>
