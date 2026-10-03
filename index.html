@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mi Súper">
+<link rel="manifest" href="manifest.json">
+<title>Mi Súper</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#f3f3f3;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.app{max-width:720px;margin:auto;padding:14px 12px 40px} .hero{background:#111;color:#fff;border-radius:20px;padding:22px 18px;margin-bottom:12px}
+h1{font-size:28px;margin:0} .sub{color:#bbb;margin-top:5px;font-size:14px}
+.stats{display:flex;gap:7px;margin-top:16px} .stat{flex:1;background:#252525;border-radius:12px;padding:9px;text-align:center;font-size:11px;color:#aaa} .stat b{display:block;color:#fff;font-size:18px}
+.progress{background:#fff;border-radius:15px;padding:14px;margin-bottom:12px} .pt{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px} .bar{height:8px;background:#ddd;border-radius:10px;overflow:hidden} .fill{height:100%;width:0;background:#111;border-radius:10px;transition:.2s}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px} button{min-height:48px;border-radius:13px;font-size:14px;font-weight:700;border:0} .dark{background:#111;color:#fff} .light{background:#fff;border:1px solid #ddd}
+.add{background:#fff;border-radius:16px;padding:14px;margin-bottom:12px} .addtitle{font-weight:700;margin-bottom:9px} .fields{display:grid;grid-template-columns:1fr 110px;gap:7px} input[type=text]{width:100%;border:1px solid #ccc;border-radius:10px;padding:12px;font-size:15px} .add button{width:100%;margin-top:8px}
+.card{background:#fff;border-radius:16px;margin-bottom:12px;overflow:hidden} h2{font-size:14px;margin:0;padding:15px;border-bottom:1px solid #eee}
+.item{border-bottom:1px solid #eee} .item:last-child{border-bottom:0} .item label{display:flex;align-items:center;gap:11px;padding:11px 14px;min-height:58px;cursor:pointer}
+.item input{position:absolute;opacity:0} .box{width:23px;height:23px;border:2px solid #555;border-radius:6px;flex:none;background:#fff} .item input:checked+.box{background:#111;border-color:#111} .item input:checked+.box:after{content:"✓";color:#fff;font-weight:700;margin-left:4px;font-size:16px}
+.name{flex:1;font-size:15px} .qty{font-size:13px;color:#777;text-align:right} .done{background:#eaf7ed} .done .name{text-decoration:line-through;color:#777}
+.manual .manualrow{display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid #eee;gap:10px;min-height:58px} .manualrow input{position:static;opacity:1;width:23px;height:23px;accent-color:#111} .manualname{flex:1} .manualqty{color:#777;font-size:13px} .delete{background:none;border:0;color:#999;font-size:20px;min-height:auto}
+footer{text-align:center;color:#888;font-size:12px;padding:8px}
+@media(max-width:420px){.fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hero"><h1>🛒 Mi Súper</h1><div class="sub">Plan alimenticio de 6 días · Adolfo Velazquez</div>
+<div class="stats"><div class="stat"><b id="total">0</b>productos</div><div class="stat"><b id="done">0</b>comprados</div><div class="stat"><b id="left">0</b>pendientes</div></div></div>
+<div class="progress"><div class="pt"><span>Progreso de compra</span><b id="pct">0%</b></div><div class="bar"><div class="fill" id="fill"></div></div></div>
+<div class="actions"><button class="dark" id="all">✓ Marcar todo</button><button class="light" id="reset">↻ Restablecer lista</button></div>
+<div class="add"><div class="addtitle">➕ Agregar producto</div><div class="fields"><input id="newName" type="text" placeholder="Producto"><input id="newQty" type="text" placeholder="Cantidad"></div><button class="dark" id="add">Agregar producto</button></div>
+<div id="products"><section class="card"><h2>🥩 CARNES, POLLO Y PESCADO</h2><div class="item" id="row1"><label><input type="checkbox" data-id="p1"><span class="box"></span><span class="name">Pechuga de pollo</span><span class="qty">1 kg</span></label></div><div class="item" id="row2"><label><input type="checkbox" data-id="p2"><span class="box"></span><span class="name">Carne de res magra</span><span class="qty">1 kg</span></label></div><div class="item" id="row3"><label><input type="checkbox" data-id="p3"><span class="box"></span><span class="name">Carne molida magra</span><span class="qty">150 g</span></label></div><div class="item" id="row4"><label><input type="checkbox" data-id="p4"><span class="box"></span><span class="name">Pescado blanco</span><span class="qty">500 g</span></label></div><div class="item" id="row5"><label><input type="checkbox" data-id="p5"><span class="box"></span><span class="name">Atún en agua</span><span class="qty">1 lata</span></label></div><div class="item" id="row6"><label><input type="checkbox" data-id="p6"><span class="box"></span><span class="name">Pechuga de pavo</span><span class="qty">700 g</span></label></div><div class="item" id="row7"><label><input type="checkbox" data-id="p7"><span class="box"></span><span class="name">Huevos</span><span class="qty">18 piezas</span></label></div><div class="item" id="row8"><label><input type="checkbox" data-id="p8"><span class="box"></span><span class="name">Claras de huevo</span><span class="qty">450 g</span></label></div></section><section class="card"><h2>🥛 LÁCTEOS</h2><div class="item" id="row9"><label><input type="checkbox" data-id="p9"><span class="box"></span><span class="name">Leche descremada</span><span class="qty">2 litros</span></label></div><div class="item" id="row10"><label><input type="checkbox" data-id="p10"><span class="box"></span><span class="name">Yogurt griego natural</span><span class="qty">1.5 kg</span></label></div></section><section class="card"><h2>🌾 CEREALES Y CARBOHIDRATOS</h2><div class="item" id="row11"><label><input type="checkbox" data-id="p11"><span class="box"></span><span class="name">Avena</span><span class="qty">1 kg</span></label></div><div class="item" id="row12"><label><input type="checkbox" data-id="p12"><span class="box"></span><span class="name">Arroz</span><span class="qty">1 kg</span></label></div><div class="item" id="row13"><label><input type="checkbox" data-id="p13"><span class="box"></span><span class="name">Pasta</span><span class="qty">500 g</span></label></div><div class="item" id="row14"><label><input type="checkbox" data-id="p14"><span class="box"></span><span class="name">Granola</span><span class="qty">500 g</span></label></div><div class="item" id="row15"><label><input type="checkbox" data-id="p15"><span class="box"></span><span class="name">Cereal</span><span class="qty">1 paquete pequeño</span></label></div><div class="item" id="row16"><label><input type="checkbox" data-id="p16"><span class="box"></span><span class="name">Pan integral</span><span class="qty">1 paquete</span></label></div><div class="item" id="row17"><label><input type="checkbox" data-id="p17"><span class="box"></span><span class="name">Tortillas de maíz</span><span class="qty">30–36 piezas</span></label></div><div class="item" id="row18"><label><input type="checkbox" data-id="p18"><span class="box"></span><span class="name">Papa</span><span class="qty">1.5 kg</span></label></div><div class="item" id="row19"><label><input type="checkbox" data-id="p19"><span class="box"></span><span class="name">Frijoles</span><span class="qty">500–750 g</span></label></div></section><section class="card"><h2>🍌 FRUTAS</h2><div class="item" id="row20"><label><input type="checkbox" data-id="p20"><span class="box"></span><span class="name">Plátano</span><span class="qty">10–12 piezas</span></label></div><div class="item" id="row21"><label><input type="checkbox" data-id="p21"><span class="box"></span><span class="name">Manzana</span><span class="qty">3 piezas</span></label></div><div class="item" id="row22"><label><input type="checkbox" data-id="p22"><span class="box"></span><span class="name">Naranja</span><span class="qty">1–2 piezas</span></label></div><div class="item" id="row23"><label><input type="checkbox" data-id="p23"><span class="box"></span><span class="name">Fruta para colaciones</span><span class="qty">2 piezas</span></label></div></section><section class="card"><h2>🥑 VERDURAS Y GRASAS</h2><div class="item" id="row24"><label><input type="checkbox" data-id="p24"><span class="box"></span><span class="name">Aguacate</span><span class="qty">3 piezas</span></label></div><div class="item" id="row25"><label><input type="checkbox" data-id="p25"><span class="box"></span><span class="name">Verduras variadas</span><span class="qty">2 kg</span></label></div><div class="item" id="row26"><label><input type="checkbox" data-id="p26"><span class="box"></span><span class="name">Crema de cacahuate</span><span class="qty">1 frasco</span></label></div><div class="item" id="row27"><label><input type="checkbox" data-id="p27"><span class="box"></span><span class="name">Aceite de oliva</span><span class="qty">1 botella pequeña</span></label></div></section><section class="card"><h2>🍅 SALSAS Y COMPLEMENTOS</h2><div class="item" id="row28"><label><input type="checkbox" data-id="p28"><span class="box"></span><span class="name">Salsa de tomate</span><span class="qty">1 frasco</span></label></div></section></div>
+<section class="card manual" id="manual" style="display:none"><h2>📝 MIS PRODUCTOS</h2><div id="manualList"></div></section>
+<footer>Las selecciones se guardan automáticamente en este dispositivo.</footer>
+</div>
+<script>
+const KEY="mi_super_adolfo_v1";
+let state={checks:{},manual:[]};
+try{state=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+function checks(){return [...document.querySelectorAll('#products input[type=checkbox]'),...document.querySelectorAll('#manualList input[type=checkbox]')]}
+function update(){
+ const a=checks(), done=a.filter(x=>x.checked).length, total=a.length, p=total?Math.round(done*100/total):0;
+ document.getElementById('total').textContent=total; document.getElementById('done').textContent=done;
+ document.getElementById('left').textContent=total-done; document.getElementById('pct').textContent=p+'%';
+ document.getElementById('fill').style.width=p+'%';
+ document.querySelectorAll('#products .item').forEach(r=>r.classList.toggle('done',r.querySelector('input').checked));
+ save();
+}
+document.querySelectorAll('#products input[type=checkbox]').forEach(x=>{x.checked=!!state.checks[x.dataset.id];x.addEventListener('change',()=>{state.checks[x.dataset.id]=x.checked;update()})});
+
+function renderManual(){
+ const box=document.getElementById('manualList'), sec=document.getElementById('manual'); box.innerHTML='';
+ sec.style.display=state.manual.length?'block':'none';
+ state.manual.forEach((m,i)=>{
+   const row=document.createElement('div'); row.className='manualrow';
+   const cb=document.createElement('input'); cb.type='checkbox'; cb.checked=!!m.checked;
+   cb.onchange=()=>{m.checked=cb.checked;update()};
+   const nm=document.createElement('span'); nm.className='manualname'; nm.textContent=m.name;
+   const qt=document.createElement('span'); qt.className='manualqty'; qt.textContent=m.qty||'';
+   const del=document.createElement('button'); del.className='delete'; del.textContent='×';
+   del.onclick=()=>{state.manual.splice(i,1);renderManual();update()};
+   row.append(cb,nm,qt,del);box.appendChild(row);
+ });
+}
+renderManual();
+
+document.getElementById('add').onclick=()=>{
+ const name=document.getElementById('newName').value.trim(), qty=document.getElementById('newQty').value.trim();
+ if(!name){alert('Escribe el nombre del producto.');return}
+ state.manual.push({name,qty,checked:false}); document.getElementById('newName').value=''; document.getElementById('newQty').value='';
+ renderManual();update();
+};
+document.getElementById('all').onclick=()=>{document.querySelectorAll('input[type=checkbox]').forEach(x=>x.checked=true);document.querySelectorAll('#products input[type=checkbox]').forEach(x=>state.checks[x.dataset.id]=true);state.manual.forEach(x=>x.checked=true);update();renderManual();};
+document.getElementById('reset').onclick=()=>{if(confirm('¿Desmarcar todos los productos?')){document.querySelectorAll('input[type=checkbox]').forEach(x=>x.checked=false);state.checks={};state.manual.forEach(x=>x.checked=false);update();renderManual()}};
+update();
+
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+</script>
+</body>
+</html>
